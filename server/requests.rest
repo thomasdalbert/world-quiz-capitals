@@ -1,0 +1,25 @@
+### Should respond with a Question (see /sharedTypes.d.ts)
+
+GET http://localhost:9111/v1/questions/random HTTP/1.1
+
+### Should respond with a GuessResponse (see /sharedTypes.d.ts)
+
+POST http://localhost:9111/v1/questions/guess HTTP/1.1
+Content-Type: application/json
+Connection: keep-alive
+
+{
+  "country": "Peru",
+  "capital": "Lima"
+}
+
+### Should respond with 422
+
+POST http://localhost:9111/v1/questions/guess HTTP/1.1
+Content-Type: application/json
+Connection: keep-alive
+
+{
+  "country": "UnknownCountry",
+  "capital": "Skopje"
+}
